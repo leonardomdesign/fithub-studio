@@ -1,24 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Layout from "@/components/layout/Layout";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: IndexPage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function IndexPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <Layout>
+      <section className="container py-24 text-center">
+        <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl">
+          Transforme sua <span className="text-primary">vida</span>
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+          A GymFit oferece a melhor infraestrutura e os melhores profissionais para você atingir seus objetivos de forma saudável e motivadora.
+        </p>
+        <div className="mt-10">
+          <Link
+            to="/contato"
+            className="rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground hover:bg-primary/90"
+          >
+            Junte-se a nós
+          </Link>
+        </div>
+      </section>
+    </Layout>
   );
 }
